@@ -8,7 +8,9 @@ import matplotlib.pyplot as plt
 def import_dataset(league):
     league_2 = (league,) #create object to be called by sqlite
 
-    with sqlite3.connect('/Users/calestini/Box Sync/Sport Analytics/Soccer/database.sqlite') as db:
+    db_path = raw_input("Please enter database path: ")
+
+    with sqlite3.connect(db_path + 'database.sqlite') as db:
         cursor = db.cursor()
         cursor.execute('''SELECT Country.name country
                               , League.name league
@@ -151,4 +153,3 @@ def plot_league(league_name = 'Belgium Jupiler League', threshold = 0.7, season_
 
 if __name__ == "__main__":
     plot_league(league_name = 'Belgium Jupiler League', threshold = 0.7, season_plot = '2015/2016')
-
