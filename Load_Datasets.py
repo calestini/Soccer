@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 def import_dataset(league):
     league_2 = (league,) #create object to be called by sqlite
 
-    db_path = raw_input("Please enter database path: ")
+    #db_path = raw_input("Please enter database path: ")
+    db_path = '/Users/calestini/Box Sync/Sport Analytics/Soccer/'
 
     with sqlite3.connect(db_path + 'database.sqlite') as db:
         cursor = db.cursor()
@@ -46,7 +47,7 @@ def import_dataset(league):
             #if counter == 1:
                 #final_dataset.append(names)
             league_matches.append(list(row))
-        print '>>> Number of records in dataset: ' + str(counter)
+        #print '>>> Number of records in dataset: ' + str(counter)
         #print final_dataset
 
         return league_matches
@@ -62,7 +63,7 @@ def by_league(league_name):
     #print ar_league_matches
 
     seasons = np.unique(ar_league_matches[:,2])
-    print '>>> Number of seasons available: ' + str(len(seasons))
+    #print '>>> Number of seasons available: ' + str(len(seasons))
 
     teams = np.unique(ar_league_matches[:,5])
     #print '>>> Number of teams in league: ' + str(len(teams))
